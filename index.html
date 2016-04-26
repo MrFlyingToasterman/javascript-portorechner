@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+    
+    <meta charset="utf-8">
+    
+    <script type="text/javascript">
+        function rechnung() {
+            var gew = document.form1.gewicht.value;
+            var port = document.form1.porto.value;
+            
+            if (gew == "") {
+                alert("Bitte geben Sie ein Briefgewicht an.");
+                return;
+            }
+            if (gew <= 0) {
+                alert("Sie können nicht nichts verschicken!");
+                return;
+            }
+            else if (gew <= 20) {
+                document.form1.porto.value = "0.55";
+            }
+            else if (gew <= 50) {
+                document.form1.porto.value = "1.10";
+            }
+            else if (gew <= 500) {
+                document.form1.porto.value = "1.50";
+            }
+            else if (gew > 500) {
+                document.form1.porto.value = "2.20";
+            }
+            document.form1.porto.value = document.form1.porto.value + " €"
+        }
+        function info() {
+            alert("Ein kleines Beispiel für simple Javascript anwendung in html 5.");
+        }
+    </script>
+    <style>
+        xbody {
+            background-image: url(src/background.jpg);
+            background-size: 83%
+        }
+        
+        td {
+            text-align: center;
+        }
+        
+        form {
+            margin-top: 15%;
+        }
+        
+        p {
+            text-align: right;
+            margin-top: 18.5%;
+        }
+        a {
+            color: dimgrey;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <form name="form1">
+        <table>
+            <tr>
+                <td>Briefgewicht</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="gewicht" size="20" placeholder="In Gramm"></td>
+            </tr>
+            <tr>
+                <td>Porto</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="porto" size="20" placeholder="In Euro"></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td> <input type="button" name="berechnenbtn" value="Briefporto Berechnen" onclick="rechnung();"></td>
+            </tr>
+        </table>
+    </form>
+    </center>
+    <a href="#" onclick="info();"><p>Simples Javascript Beispiel</p></a>
+</body>
